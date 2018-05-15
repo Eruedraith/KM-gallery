@@ -1,0 +1,26 @@
+/* Gallery Top Action Bar */
+.gallery__action-bar {
+  display: flex;
+  align-items: center; }
+
+.gallery__action-bar-left {
+  display: flex;
+  justify-content: space-between; }
+
+.gallery__action-bar-right {
+  display: flex;
+  align-items: center; }
+  .gallery__action-bar-right form {
+    flex-basis: 100%;
+    height: 2.3125rem;
+    border: none !important;
+    background-color: #fff !important;
+    padding: 0 16px !important; }
+
+/* Sidebar */
+.gallery__filter-card--body form {
+  border: none !important;
+  background-color: #fff !important; }
+  .gallery__filter-card--body form input {
+    transform: none;
+    color: yellow; }
