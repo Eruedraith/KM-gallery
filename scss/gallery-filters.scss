@@ -12,6 +12,12 @@
     &::-webkit-input-placeholder { @content; }
 }
 
+@mixin box-shadow {
+	box-shadow: 0 2px 10px #D9DFF0;
+	-moz-box-shadow: 0 2px 10px #D9DFF0;
+	-webkit-box-shadow: 0 2px 10px #D9DFF0;
+}
+
 // Variables 
 $border-color: #DFEAEE;
 $red:		   #E43B44;
@@ -41,6 +47,10 @@ body {
 		// overrides default styling
 		@include form-override;
     	padding: 0 16px !important;
+
+    	&:last-child {
+    		padding-right: 0 !important;
+    	}
 
     	select {
     		height: 2.3125rem;
@@ -117,9 +127,10 @@ body {
 
 	.gallery__img--card {
 		border: 1px solid $border-color;
-		height: 319px;
 		flex-basis: 31%;
 		margin-bottom: 20px;
+		border-radius: 3px;
+		@include box-shadow;
 	}
 
 	.gallery__img--background {
@@ -129,7 +140,19 @@ body {
 	}
 
 	.gallery__img--body {
-		padding: 20px;
+		padding: 10px 20px 21px;
+	}
+
+	.gallery__img--props {
+		list-style: none;
+		margin-left: 0;
+		font-size: 13px;
+		margin-bottom: 0;
+
+		> li i {
+			padding-right: 10px;
+			opacity: .23;
+		}
 	}
 
 }
