@@ -16,7 +16,7 @@
 		    <!-- TOP BAR -->
 		    <div class="gallery__action-bar">
 		      <!-- FILTER CLEAR -->
-		      <div class="span2">
+		      <div class="span3">
 		          <div class="gallery__action-bar-left">Filter
 		            <a href="#">Clear all</a>
 		          </div>
@@ -24,7 +24,7 @@
 		      <!-- SPACER -->
 		      <div class="span1"></div>
 		      <!-- SORTS & SEARCH -->
-		      <div class="span9">
+		      <div class="span8">
 		        <div class="gallery__action-bar-right">
 		          <form>
 		            <select name="sort-by">
@@ -39,7 +39,9 @@
 		              <option value="New Cabinets">New Cabinets</option>
 		            </select>
 		          </form>
-		          <input type="text" placeholder="Search...">
+		          <form>
+		          	<input id="gallery-filter-search" type="text" placeholder="Search...">
+		      	  </form>
 		        </div>
 		      </div>
 		      <!-- END TOP BAR -->
@@ -47,28 +49,42 @@
 		  
 		  <div class="row-fluid">
 		    <!-- SIDEBAR FILTERS -->
-		    <div class="span4">
+		    <div class="span3">
 		      <div class="gallery__filter-card">
 		        <div class="gallery__filter-card--header">
 		          Kitchen Style
+		          <span class="gallery__filter-card--dropdown"><i class="fa fa-chevron-down"></i></span>
 		        </div>
 		        <div class="gallery__filter-card--body">
 		          <form>
 		            <div class="form-check">
-		              <input type="radio" id="" name="" value="Contemporary">
+		              <input type="checkbox" id="" name="" value="Contemporary">
 		              <label>Contemporary</label>
 		            </div>
 		             <div class="form-check">
-		              <input type="radio" id="" name="" value="Contemporary">
+		              <input type="checkbox" id="" name="" value="Farmhouse">
 		              <label>Farmhouse</label>
+		            </div>
+		             <div class="form-check">
+		              <input type="checkbox" id="" name="" value="Rustic">
+		              <label>Rustic</label>
+		            </div>
+		             <div class="form-check">
+		              <input type="checkbox" id="" name="" value="Traditional">
+		              <label>Traditional</label>
 		            </div>
 		          </form>
 		        </div>
 		      </div>
 		    </div>
 		    <!-- GALLERY IMAGES -->
-		    <div class="span8">
-		      
+		    <div class="span10">
+		    	<div class="gallery__img-wrapper">
+		    		<div class="gallery__img--card">
+		    			<div class="gallery-img--background">
+		    			</div>
+		    		</div>
+		    	</div>
 		    </div>
 		  </div>
 		  
