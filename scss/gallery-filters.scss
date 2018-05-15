@@ -109,3 +109,27 @@ body {
 }
 
 /*** Image Gallery ***/
+
+.gallery__img {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.gallery__img--card {
+		border: 1px solid $border-color;
+		height: 319px;
+		flex-basis: 31%;
+		margin-bottom: 20px;
+	}
+
+	.gallery__img--background {
+		background: url(https://source.unsplash.com/random);
+		background-size: cover;
+		height: 210px;
+	}
+
+	.gallery__img--body {
+		padding: 20px;
+	}
+
+}
