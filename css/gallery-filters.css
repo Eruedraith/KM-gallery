@@ -22,5 +22,4 @@
   border: none !important;
   background-color: #fff !important; }
   .gallery__filter-card--body form input {
-    transform: none;
-    color: 12; }
+    transform: none; }

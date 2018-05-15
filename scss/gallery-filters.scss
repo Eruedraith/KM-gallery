@@ -10,7 +10,6 @@ $border-color: #DFEAEE;
 $red:		   #E43B44;
 
 /* Gallery Top Action Bar */
-
 .gallery__action-bar {
 	display: flex;
 	align-items: center;
@@ -31,7 +30,6 @@ $red:		   #E43B44;
 		// overrides default styling
 		@include form-override;
     	padding: 0 16px !important;
-
 	}
 }
 
@@ -45,7 +43,6 @@ $red:		   #E43B44;
 
 		input {
 			transform: none;
-			color: 12;
 
 		}
 	}
