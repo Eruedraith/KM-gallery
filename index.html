@@ -9,18 +9,10 @@
      	<!-- Gallery Filters CSS -->
 		<link rel="stylesheet" href="/css/gallery-filters.css">
 
-		<!-- Gallery Filters JS -->
-		<script type="text/javascript" src="/js/gallery-filters.js"></script>
-
 		<!-- Hubspot Related CSS -->
 		<link rel="stylesheet" href="/css/layout.min.css">
 		<link rel="stylesheet" href="https://www.kitchenmagic.com/hs-fs/hub/126868/hub_generated/template_assets/1525802331136/Custom/pages/css/global/Temp-global.min.css">
 		<link rel="stylesheet" href="https://www.kitchenmagic.com/hs-fs/hub/126868/hub_generated/template_assets/1513359145399/custom/styles/default/hs_default_custom_style.min.css">
-
-		<!-- jQuery -->
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/core.js"></script>
-
-
     </head>
 
     <body class="body-container">
@@ -64,6 +56,32 @@
 		    <!-- SIDEBAR FILTERS -->
 		    <div class="span3">
 		      <div class="gallery__filter-card">
+		        <div class="gallery__filter-card--header">
+		          Kitchen Style
+		          <span class="gallery__filter-card--dropdown"><i class="fa fa-chevron-down"></i></span>
+		        </div>
+		        <div class="gallery__filter-card--body">
+		          <form>
+		            <div class="form-check">
+		              <input type="checkbox" id="" name="" value="Contemporary">
+		              <label>Contemporary</label>
+		            </div>
+		             <div class="form-check">
+		              <input type="checkbox" id="" name="" value="Farmhouse">
+		              <label>Farmhouse</label>
+		            </div>
+		             <div class="form-check">
+		              <input type="checkbox" id="" name="" value="Rustic">
+		              <label>Rustic</label>
+		            </div>
+		             <div class="form-check">
+		              <input type="checkbox" id="" name="" value="Traditional">
+		              <label>Traditional</label>
+		            </div>
+		          </form>
+		        </div>
+		      </div>
+		       <div class="gallery__filter-card">
 		        <div class="gallery__filter-card--header">
 		          Kitchen Style
 		          <span class="gallery__filter-card--dropdown"><i class="fa fa-chevron-down"></i></span>
@@ -161,5 +179,9 @@
 		</div>
    	</body>
    	<footer>
+   		<!-- jQuery -->
+		<script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+   		<!-- Gallery Filters JS -->
+		<script type="text/javascript" src="/js/gallery-filters.js"></script>
    	</footer>
 </html>
