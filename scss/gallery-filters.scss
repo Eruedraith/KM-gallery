@@ -82,9 +82,19 @@ body {
 
 /*** Sidebar ***/
 
+.gallery__filter {
+
+	.gallery__filter-card {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
+
 .gallery__filter-card {
 	border: 1px solid $border-color;
 	border-radius: 3px;
+	margin-top: 20px;
 }
 
 .gallery__filter-card--header {
