@@ -66,6 +66,8 @@ body {
   align-items: center;
   font-size: 13px;
   color: #E43B44; }
+  .gallery__filter-card--dropdown:hover {
+    cursor: pointer; }
 
 .gallery__filter-card--body {
   padding: 10px 20px 20px; }
