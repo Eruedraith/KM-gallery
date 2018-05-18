@@ -105,6 +105,10 @@ body {
 	border-bottom: 1px solid $border-color;
 	padding: 10px 20px;
 	font-weight: bold;
+
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .gallery__filter-card--dropdown {
@@ -120,14 +124,14 @@ body {
 
 .gallery__filter-card--body {
 
-	padding: 10px 20px 20px;
+	padding: 0 20px 14px;
 	
 	form {
 		// overrides default styling
 		@include form-override;
 
 		input {
-			transform: none;
+			transform: none !important;
 
 		}
 	}
@@ -156,7 +160,7 @@ body {
 	}
 
 	.gallery__img--body {
-		padding: 10px 20px 21px;
+		padding: 13px 20px 18px;
 	}
 
 	.gallery__img--props {
