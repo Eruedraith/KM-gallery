@@ -107,6 +107,10 @@ body {
     margin-left: 0;
     font-size: 13px;
     margin-bottom: 0; }
+    .gallery__img .gallery__img--props li {
+      padding-bottom: 5px; }
+      .gallery__img .gallery__img--props li:last-child {
+        padding-bottom: 0; }
     .gallery__img .gallery__img--props > li i {
       padding-right: 10px;
       opacity: .23; }

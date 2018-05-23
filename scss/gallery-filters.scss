@@ -169,6 +169,14 @@ body {
 		font-size: 13px;
 		margin-bottom: 0;
 
+		li {
+			padding-bottom: 5px;
+
+			&:last-child {
+				padding-bottom: 0;
+			}
+		}
+
 		> li i {
 			padding-right: 10px;
 			opacity: .23;
