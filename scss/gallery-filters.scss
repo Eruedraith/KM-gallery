@@ -27,6 +27,9 @@ body {
 	padding-top: 50px !important;
 }
 
+/******************************************** 
+  https://github.com/Eruedraith/KM-gallery 
+********************************************/
 
 /*** Gallery Top Action Bar ***/
 .gallery__action-bar {
@@ -148,6 +151,7 @@ body {
 	.gallery__img--card {
 		border: 1px solid $border-color;
 		flex-basis: 31%;
+		width: 31%;
 		margin-bottom: 20px;
 		border-radius: 3px;
 		@include box-shadow;
@@ -182,5 +186,4 @@ body {
 			opacity: .23;
 		}
 	}
-
 }

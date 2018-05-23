@@ -1,25 +1,23 @@
+console.log('search6');
+
 // accordion sidebar 
-	$('.gallery__filter-card--header').on("click", function(e) {
-		$(e.target).closest(".gallery__filter-card").find('.gallery__filter-card--body').slideToggle('400');
-	});
+$('.gallery__filter-card--header').on("click", function(e) {
+	$(e.target).closest(".gallery__filter-card").find('.gallery__filter-card--body').slideToggle('400');
+});
 
-// JOSH M. STUFF
-// var $grid = $('.gallery__img-grid').isotope({
-//   itemSelector: '.gallery__img--card',
-//   layoutMode: 'fitRows'
-// });
-// console.log("Grid",$grid);
-
-// (function(){
-// 	console.log("Grid",$grid);
-// })();
-
-console.log('test10');
-// JOSH T. STUFF 
 // init Isotope
 var $grid = $('.gallery__img-grid').isotope ({
   itemSelector: '.gallery__img--card',
-  layoutMode: 'fitRows'
+  layoutMode: 'fitRows',
+  fitRows: {
+  	gutter: 20
+  }
+});
+
+// sorting
+$('.sort').on('click', function(){
+	var sortValue = $(this).attr('data-sort-value');
+	$('.gallery__img-grid').isotope({ sortBy: sortValue });
 });
 
 // filter items on checkbox
@@ -35,12 +33,11 @@ $checkboxes.change( function() {
 	// Concatenate the values from the filters array into a single string
 	var filterValue = filters.join();
 	$('.gallery__img-grid').isotope({ filter: filterValue });
-	console.log(filterValue);
-	console.log(filters);
 });
 
 // Clear all 
-$('#clear-all').on('click', function() {
+$('#clear-filters').on('click', function() {
 	$('.form-check input:checkbox:checked').removeAttr('checked');
 	$('.gallery__img-grid').isotope({ filter: '*' });
 });
+
