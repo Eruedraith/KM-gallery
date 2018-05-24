@@ -1,4 +1,4 @@
-console.log('search6');
+console.log('sort-popular5');
 
 // accordion sidebar 
 $('.gallery__filter-card--header').on("click", function(e) {
@@ -11,13 +11,29 @@ var $grid = $('.gallery__img-grid').isotope ({
   layoutMode: 'fitRows',
   fitRows: {
   	gutter: 20
-  }
+  },
+  getSortData: {
+  	popular: '[data-popular-sort]'
+  },
+  sortBy: 'popular',
+  sortAscending: false
 });
 
-// sorting
-$('.sort').on('click', function(){
-	var sortValue = $(this).attr('data-sort-value');
-	$('.gallery__img-grid').isotope({ sortBy: sortValue });
+
+// sorting with select
+var $select = $('#sort-by');
+
+$select.change( function() {
+	var sort = [];
+	// get values of the select
+	// Place values into filters array
+	$select.filter(':selected').each( function() {
+		sort.push(this.value);
+		console.log(sort);
+	});
+	// Concatenate the values from the sort array into a single string
+	var sortValue = sort.join();
+	$('.gallery__img-grid').isotope({ sortBy: sortValue});
 });
 
 // filter items on checkbox
