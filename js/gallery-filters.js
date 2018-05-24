@@ -1,4 +1,4 @@
-console.log('sort-popular5');
+console.log('sort-popular12');
 
 // accordion sidebar 
 $('.gallery__filter-card--header').on("click", function(e) {
@@ -13,14 +13,16 @@ var $grid = $('.gallery__img-grid').isotope ({
   	gutter: 20
   },
   getSortData: {
-  	popular: '[data-popular-sort]'
+  	popular: '[data-popular-sort]',
+  	arrival: '[data-arrival-sort]'
   },
-  sortBy: 'popular',
+  sortBy: ['popular', 'arrival'],
   sortAscending: false
 });
 
-
 // sorting with select
+
+//popular sort
 var $select = $('#sort-by');
 
 $select.change( function() {
@@ -28,12 +30,13 @@ $select.change( function() {
 	// get values of the select
 	// Place values into filters array
 	$select.filter(':selected').each( function() {
+		console.log(this);
 		sort.push(this.value);
-		console.log(sort);
 	});
 	// Concatenate the values from the sort array into a single string
 	var sortValue = sort.join();
 	$('.gallery__img-grid').isotope({ sortBy: sortValue});
+	console.log(sortValue);
 });
 
 // filter items on checkbox
