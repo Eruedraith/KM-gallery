@@ -1,4 +1,4 @@
-console.log('sort-popular12');
+console.log('sorting5');
 
 // accordion sidebar 
 $('.gallery__filter-card--header').on("click", function(e) {
@@ -16,28 +16,29 @@ var $grid = $('.gallery__img-grid').isotope ({
   	popular: '[data-popular-sort]',
   	arrival: '[data-arrival-sort]'
   },
-  sortBy: ['popular', 'arrival'],
-  sortAscending: false
+  sortBy: 'popular',
+  sortAscending: true,
+  filter: function() {
+    return qsRegex ? $(this).text().match( qsRegex ) : true;
+  }
 });
 
-// sorting with select
 
-//popular sort
+//sorting popular & newest
 var $select = $('#sort-by');
-
 $select.change( function() {
-	var sort = [];
-	// get values of the select
-	// Place values into filters array
-	$select.filter(':selected').each( function() {
-		console.log(this);
-		sort.push(this.value);
-	});
-	// Concatenate the values from the sort array into a single string
-	var sortValue = sort.join();
-	$('.gallery__img-grid').isotope({ sortBy: sortValue});
-	console.log(sortValue);
+	var selectValue = $('#sort-by option:selected').val();
+	console.log(selectValue);
+	$('.gallery__img-grid').isotope({ sortBy: selectValue});
 });
+
+// filter by solution (select form)
+$('#solution-filter').change( function() {
+	var selectSolutionValue = $('#solution-filter option:selected').val();
+	console.log(selectSolutionValue);
+	$('.gallery__img-grid').isotope({ filter: selectSolutionValue});
+});
+
 
 // filter items on checkbox
 var $checkboxes = $('.form-check input');
@@ -59,4 +60,27 @@ $('#clear-filters').on('click', function() {
 	$('.form-check input:checkbox:checked').removeAttr('checked');
 	$('.gallery__img-grid').isotope({ filter: '*' });
 });
+
+// search bar
+var qsRegex;
+// use value of search field to filter
+var $quicksearch = $('#gallery-filter-search').keyup( debounce( function() {
+  qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+  $grid.isotope();
+}, 200 ) );
+
+// debounce so filtering doesn't happen every millisecond
+function debounce( fn, threshold ) {
+  var timeout;
+  threshold = threshold || 100;
+  return function debounced() {
+    clearTimeout( timeout );
+    var args = arguments;
+    var _this = this;
+    function delayed() {
+      fn.apply( _this, args );
+    }
+    timeout = setTimeout( delayed, threshold );
+  };
+}
 
