@@ -1,4 +1,4 @@
-console.log('sorting5');
+console.log('api4');
 
 // accordion sidebar 
 $('.gallery__filter-card--header').on("click", function(e) {
@@ -18,6 +18,7 @@ var $grid = $('.gallery__img-grid').isotope ({
   },
   sortBy: 'popular',
   sortAscending: true,
+  // search
   filter: function() {
     return qsRegex ? $(this).text().match( qsRegex ) : true;
   }
@@ -28,7 +29,6 @@ var $grid = $('.gallery__img-grid').isotope ({
 var $select = $('#sort-by');
 $select.change( function() {
 	var selectValue = $('#sort-by option:selected').val();
-	console.log(selectValue);
 	$('.gallery__img-grid').isotope({ sortBy: selectValue});
 });
 
@@ -83,4 +83,25 @@ function debounce( fn, threshold ) {
     timeout = setTimeout( delayed, threshold );
   };
 }
+
+
+// try swipebox instead!
+
+// Lightbox - Chocolat -- REMOVE ME
+$('.gallery__img--card').Chocolat();
+
+
+// fetch kitchen ID --> call api --> build gallery
+var $kitchenNumber = $('.kitchen-number');
+
+$.ajax({
+  type: 'GET',
+  url: 'https://api.hubapi.com/hubdb/api/v2/tables/697229/rows?portalId=126868',
+  success: function(kitchenData) {
+    $.each(kitchenData, function(i, kitchenNumber) {
+      $kitchenNumber.append('Kitchen Number: "kitchenNumber.kitchen_number"');
+    console.log('successful api call!');
+    });
+  }
+});
 

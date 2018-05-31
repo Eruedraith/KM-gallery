@@ -1,3 +1,9 @@
+<!-----------
+  DEPENDENCIES
+  isotope.js
+  chocolat.js
+  chocolat.css
+---------------->
 <div class="gallery">
   <div class="row-fluid">
     <!-- TOP BAR -->
@@ -13,21 +19,21 @@
       <!-- SORTS & SEARCH -->
       <div class="span8">
         <div class="gallery__action-bar-right">
-          <form>
-            <select id="sort-by" name="sort-by">
+          <form id="sort-by">
+            <select name="sort-by">
               <option value="popular">Most Popular</option>
               <option value="arrival">Most Recent</option>
             </select>
           </form>
-          <form>
-            <select id="solution-filter" name="solutions-sort">
+          <form id="solution-filter">
+            <select name="solutions-sort">
               <option value="*">All</option>
               <option value="Cabinet Refacing">Cabinet Refacing</option>
               <option value="New Cabinets">New Cabinets</option>
-              <option value="Cabinet-Refacing">Cabinet-Refacing</option>
+              <option value="cabinet-refacing">cabinet-refacing</option>
             </select>
           </form>
-          <form>
+          <form  action="javascript:void(0);">
           	<input id="gallery-filter-search" type="text" placeholder="Search...">
       	  </form>
         </div>
@@ -164,18 +170,19 @@
     </div>
     <!-- GALLERY IMAGES -->
     <div class="span9">
-    	<div class="gallery__img gallery__img-grid">
+    	<div class="gallery__img gallery__img-grid" data-chocolat-title="Testing 1">
+        <!-- TESTING CHOCOLAT JS -->
+
     		<!-- REPEATED CARD -->
    			{% for row in hubdb_table_rows(697229, 'is_cover__eq=1') %}
-    		<div class="gallery__img--card {{row.kitchen_design_style.name}} {{row.cabinet_color_family.name}} {{row.cabinet_styles.name}}  {{row.cabinet_material.name}} {{row.countertop_material.name}} {{row.countertop_color.name}} {{row.backsplash_material.name}} {{row.solutions.name}} Cabinet-Refacing" data-popular-sort="{{row.most_popular_sort}}" data-arrival-sort="{{row.new_arrival_sort}}">
+    		<div class="gallery__img--card  {{row.kitchen_design_style.name}} {{row.cabinet_color_family.name}} {{row.cabinet_styles.name}}  {{row.cabinet_material.name}} {{row.countertop_material.name}} {{row.countertop_color.name}} {{row.backsplash_material.name}} Cabinet-Refacing" data-popular-sort="{{row.most_popular_sort}}" data-arrival-sort="{{row.new_arrival_sort}}">
     			<div class="gallery__img--background" style="background-image: url({{ row.image_url }});"></div>
     			<div class="gallery__img--body">
     				<ul class="gallery__img--props">
-              <li>Popular: {{row.most_popular_sort}}</li>
-              <li>Arrival: {{row.new_arrival_sort}}</li>
     					<li><i class="fa fa-wrench"></i> {{row.cabinet_style.name}}</li>
     					<li><i class="fa fa-wrench"></i> {{row.countertop_material.name}}</li>
     					<li><i class="fa fa-wrench"></i> {{row.solutions.name}}</li>
+              <li class="kitchen-number">{{row.kitchen_number}}</li>
     				</ul>
     			</div>
     		</div>
@@ -184,9 +191,10 @@
     	</div>
     </div>
     <!-- END GALLERY IMAGES -->
-
   </div>
 </div>
 
 <!-- ISOTOPE -->
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+<!-- CHOCOLAT LIGHTBOX -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chocolat/0.4.19/js/jquery.chocolat.min.js"></script>

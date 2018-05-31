@@ -1,6 +1,3 @@
-body {
-  padding-top: 50px !important; }
-
 /******************************************** 
   https://github.com/Eruedraith/KM-gallery 
 ********************************************/
@@ -23,6 +20,12 @@ body {
     padding: 0 16px !important; }
     .gallery__action-bar-right form:last-child {
       padding-right: 0 !important; }
+    .gallery__action-bar-right form#sort-by:before {
+      content: "Sort by:";
+      font-size: 12px; }
+    .gallery__action-bar-right form#solution-filter:before {
+      content: "Solutions:";
+      font-size: 12px; }
     .gallery__action-bar-right form select {
       height: 2.3125rem;
       border-color: #DFEAEE;
@@ -30,6 +33,8 @@ body {
       .gallery__action-bar-right form select:after {
         content: "\f078";
         font-family: fontawesome; }
+      .gallery__action-bar-right form select:active {
+        outline: none; }
 
 #gallery-filter-search {
   background-image: url(https://cdn2.hubspot.net/hubfs/126868/graphics/icons/med-search.png);
