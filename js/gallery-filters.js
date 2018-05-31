@@ -1,4 +1,4 @@
-console.log('api4');
+console.log('api');
 
 // accordion sidebar 
 $('.gallery__filter-card--header').on("click", function(e) {
@@ -84,24 +84,38 @@ function debounce( fn, threshold ) {
   };
 }
 
-
-// try swipebox instead!
-
-// Lightbox - Chocolat -- REMOVE ME
-$('.gallery__img--card').Chocolat();
-
-
-// fetch kitchen ID --> call api --> build gallery
-var $kitchenNumber = $('.kitchen-number');
-
-$.ajax({
-  type: 'GET',
-  url: 'https://api.hubapi.com/hubdb/api/v2/tables/697229/rows?portalId=126868',
-  success: function(kitchenData) {
-    $.each(kitchenData, function(i, kitchenNumber) {
-      $kitchenNumber.append('Kitchen Number: "kitchenNumber.kitchen_number"');
-    console.log('successful api call!');
-    });
-  }
+// init swipebox
+$('.gallery__img--card').click( function(event) {
+  var kitchenNumber = event['currentTarget']['id']
+  getAlbumData(kitchenNumber).done(function(albumData){
+    var cleanAlbumData = parseAlbumData(albumData);
+    $.swipebox(cleanAlbumData);
+  });
 });
+
+// get album data
+function getAlbumData(albumId){
+  return $.ajax({
+    type: 'GET',
+    url: 'https://api.hubapi.com/hubdb/api/v2/tables/697229/rows?portalId=126868&kitchen_number=' + albumId + '',
+    success: function(data) {
+      return data;
+    },
+    error: function(err,b){
+      console.log('Ajax request error:',err,b);
+    }
+  });
+}
+
+// clean album data & create object for swipebox
+function parseAlbumData(albumData) {
+  var newAlbumData = [];
+  $.each(albumData['objects'], function(key, value){
+    var image = {
+      href: value['values'][2] 
+    }
+    newAlbumData.push(image);
+  });
+  return newAlbumData;
+}
 
