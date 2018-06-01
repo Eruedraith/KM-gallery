@@ -1,11 +1,11 @@
-console.log('api');
+console.log('solutions');
 
 // accordion sidebar 
 $('.gallery__filter-card--header').on("click", function(e) {
   $(e.target).closest(".gallery__filter-card").find('.gallery__filter-card--body').slideToggle('400');
 });
 
-//sidebar checkbox 
+//sidebar filters - click on and off checkbox
 $('.form-check').on('click', function() {
   $(this).find('input').trigger('click');
 });
@@ -40,8 +40,9 @@ $select.change( function() {
 });
 
 // filter by solution (select form)
-$('#solution-filter').change( function() {
-	var selectSolutionValue = $('#solution-filter option:selected').val();
+$('#solution-filter').on('change', function() {
+  //get value from option value
+	var selectSolutionValue = this.value;
 	console.log(selectSolutionValue);
 	$('.gallery__img-grid').isotope({ filter: selectSolutionValue});
 });
@@ -59,6 +60,7 @@ $checkboxes.change( function() {
 	});
 	// Concatenate the values from the filters array into a single string
 	var filterValue = filters.join();
+  console.log(filterValue);
 	$('.gallery__img-grid').isotope({ filter: filterValue });
 });
 
