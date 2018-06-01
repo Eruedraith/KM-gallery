@@ -8,10 +8,10 @@
 <div class="gallery">
   <div class="row-fluid">
     <!-- TOP BAR -->
-    <div class="gallery__action-bar">
+    <div class="gallery__action-bar hide-for-small-only">
       <!-- FILTER CLEAR -->
       <div class="span3">
-          <div class="gallery__action-bar-left">Filter
+          <div class="gallery__action-bar-left">Filter:
             <a href="JavaScript:void(0);" id="clear-filters">Clear all</a>
           </div>
       </div>
@@ -34,7 +34,7 @@
               <option value="cabinet-refacing">cabinet-refacing</option>
             </select>
           </form>
-          <form  action="javascript:void(0);">
+          <form id="search-bar" action="javascript:void(0);">
           	<input id="gallery-filter-search" type="text" placeholder="Search...">
       	  </form>
         </div>
@@ -44,7 +44,7 @@
   
   <div class="row-fluid">
     <!-- SIDEBAR FILTERS -->
-    <div class="span3 gallery__filter">
+    <div class="span3 gallery__filter hide-for-small-only">
       <!-- KITCHEN DESIGN STYLES -->
       <div class="gallery__filter-card">
         <div class="gallery__filter-card--header">
@@ -196,3 +196,5 @@
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <!-- SWIPEBOX -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/js/jquery.swipebox.min.js"></script>
+<!-- jQuery NICE SELECT -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>

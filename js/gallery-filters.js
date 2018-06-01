@@ -5,6 +5,9 @@ $('.gallery__filter-card--header').on("click", function(e) {
 	$(e.target).closest(".gallery__filter-card").find('.gallery__filter-card--body').slideToggle('400');
 });
 
+// init jQuery Nice Select 
+$('select').niceSelect();
+
 // init Isotope
 var $grid = $('.gallery__img-grid').isotope ({
   itemSelector: '.gallery__img--card',
@@ -23,7 +26,6 @@ var $grid = $('.gallery__img-grid').isotope ({
     return qsRegex ? $(this).text().match( qsRegex ) : true;
   }
 });
-
 
 //sorting popular & newest
 var $select = $('#sort-by');
