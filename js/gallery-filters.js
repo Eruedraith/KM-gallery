@@ -2,7 +2,12 @@ console.log('api');
 
 // accordion sidebar 
 $('.gallery__filter-card--header').on("click", function(e) {
-	$(e.target).closest(".gallery__filter-card").find('.gallery__filter-card--body').slideToggle('400');
+  $(e.target).closest(".gallery__filter-card").find('.gallery__filter-card--body').slideToggle('400');
+});
+
+//sidebar checkbox 
+$('.form-check').on('click', function() {
+  $(this).find('input').trigger('click');
 });
 
 // init jQuery Nice Select 

@@ -56,6 +56,10 @@ $red:		   #E43B44;
 	display: flex;
 	align-items: center;
 	margin-bottom: 28px;
+	
+	@include mobile {
+		display: none;
+	}
 }
 
 .gallery__action-bar-left {
@@ -118,10 +122,11 @@ $red:		   #E43B44;
     background-position: 12px 8px;
     background-size: auto 55%;
     text-indent: 35px;
-    height: 40px;
-    line-height: 40px;
+    height: 42px;
+    line-height: 42px;
     box-shadow: none;
     border-color: $border-color;
+    margin-bottom: 0;
 
     @include input-placeholder {
     	color: #787878;
@@ -180,6 +185,10 @@ $red:		   #E43B44;
 		input {
 			transform: none !important;
 
+			&:hover {
+				cursor: pointer;
+			}
+
 		}
 	}
 }
@@ -221,6 +230,7 @@ $red:		   #E43B44;
 			transform-origin: left top;
 			border-top: 1px solid $red;
 			border-bottom: 1px solid $red;
+			border-radius: 3px;
 		}
 
 		&:after {
@@ -228,6 +238,7 @@ $red:		   #E43B44;
 			transform-origin: right top;
 			border-right: 1px solid $red;
 			border-left: 1px solid $red;
+			border-radius: 3px;
 		}
 
 		&:hover::before, &:hover::after, &:focus::before, &:focus::after {
@@ -252,16 +263,15 @@ $red:		   #E43B44;
 		margin-bottom: 0;
 
 		li {
-			padding-bottom: 5px;
+			padding-bottom: 9px;
 
 			&:last-child {
 				padding-bottom: 0;
 			}
 		}
 
-		> li i {
-			padding-right: 10px;
-			opacity: .23;
+		> li img {
+			padding-right: 13px;
 		}
 	}
 }
@@ -297,8 +307,8 @@ $arrow_color: $gray !default;
   cursor: pointer;
   display: block;
   font-family: inherit;
+  text-transform: uppercase;
   font-size: $font_size;
-  font-weight: normal;
   height: $input_height;
   line-height: $input_height - 2;
   outline: none;
@@ -400,6 +410,7 @@ $arrow_color: $gray !default;
     transform: scale(.75) translateY(- $input_height / 2);
     transition: all .2s cubic-bezier(0.5, 0, 0, 1.25), opacity .15s ease-out;
     z-index: 9;
+    width: 100%;
     &:hover .option:not(:hover) {
       background-color: transparent !important;
     }

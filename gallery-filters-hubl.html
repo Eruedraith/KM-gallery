@@ -8,7 +8,7 @@
 <div class="gallery">
   <div class="row-fluid">
     <!-- TOP BAR -->
-    <div class="gallery__action-bar hide-for-small-only">
+    <div class="gallery__action-bar">
       <!-- FILTER CLEAR -->
       <div class="span3">
           <div class="gallery__action-bar-left">Filter:
@@ -31,7 +31,6 @@
               <option value="*">All</option>
               <option value="Cabinet Refacing">Cabinet Refacing</option>
               <option value="New Cabinets">New Cabinets</option>
-              <option value="cabinet-refacing">cabinet-refacing</option>
             </select>
           </form>
           <form id="search-bar" action="javascript:void(0);">
@@ -174,13 +173,13 @@
     	<div class="gallery__img gallery__img-grid">       
     		<!-- REPEATED CARD -->
    			{% for row in hubdb_table_rows(697229, 'is_cover__eq=1') %}
-    		<div id="{{row.kitchen_number}}" class="gallery__img--card  {{row.kitchen_design_style.name}} {{row.cabinet_color_family.name}} {{row.cabinet_styles.name}}  {{row.cabinet_material.name}} {{row.countertop_material.name}} {{row.countertop_color.name}} {{row.backsplash_material.name}} Cabinet-Refacing" data-popular-sort="{{row.most_popular_sort}}" data-arrival-sort="{{row.new_arrival_sort}}">
+    		<div id="{{row.kitchen_number}}" class="gallery__img--card  {{row.kitchen_design_style.name}} {{row.cabinet_color_family.name}} {{row.cabinet_styles.name}}  {{row.cabinet_material.name}} {{row.countertop_material.name}} {{row.countertop_color.name}} {{row.backsplash_material.name}}" data-popular-sort="{{row.most_popular_sort}}" data-arrival-sort="{{row.new_arrival_sort}}">
     			<div class="gallery__img--background" style="background-image: url({{ row.image_url }});"></div>
     			<div class="gallery__img--body">
     				<ul class="gallery__img--props">
-    					<li><i class="fa fa-wrench"></i> {{row.cabinet_style.name}}</li>
-    					<li><i class="fa fa-wrench"></i> {{row.countertop_material.name}}</li>
-    					<li><i class="fa fa-wrench"></i> {{row.solutions.name}}</li>
+    					<li><img src="https://www.kitchenmagic.com/hubfs/graphics/icons/cabinet-icon.svg">{{row.cabinet_style.name}}</li>
+    					<li><img src="https://www.kitchenmagic.com/hubfs/graphics/icons/countertop-icon.svg">{{row.countertop_material.name}}</li>
+    					<li><img src="https://www.kitchenmagic.com/hubfs/graphics/icons/service-icon.svg">{{row.solutions.name}}</li>
     				</ul>
     			</div>
     		</div>

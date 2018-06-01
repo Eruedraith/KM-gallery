@@ -6,6 +6,9 @@
   display: flex;
   align-items: center;
   margin-bottom: 28px; }
+  @media (min-width: 576px) and (max-width: 768px) {
+    .gallery__action-bar {
+      display: none; } }
 
 .gallery__action-bar-left {
   display: flex;
@@ -37,10 +40,11 @@
   background-position: 12px 8px;
   background-size: auto 55%;
   text-indent: 35px;
-  height: 40px;
-  line-height: 40px;
+  height: 42px;
+  line-height: 42px;
   box-shadow: none;
-  border-color: #DFEAEE; }
+  border-color: #DFEAEE;
+  margin-bottom: 0; }
   #gallery-filter-search.placeholder {
     color: #787878; }
   #gallery-filter-search:-moz-placeholder {
@@ -87,6 +91,8 @@
     background-color: #fff !important; }
     .gallery__filter-card--body form input {
       transform: none !important; }
+      .gallery__filter-card--body form input:hover {
+        cursor: pointer; }
 
 /*** Image Gallery ***/
 .gallery__img {
@@ -118,12 +124,14 @@
       transform: scale3d(0, 1, 1);
       transform-origin: left top;
       border-top: 1px solid #E43B44;
-      border-bottom: 1px solid #E43B44; }
+      border-bottom: 1px solid #E43B44;
+      border-radius: 3px; }
     .gallery__img .gallery__img--card:after {
       transform: scale3d(1, 0, 1);
       transform-origin: right top;
       border-right: 1px solid #E43B44;
-      border-left: 1px solid #E43B44; }
+      border-left: 1px solid #E43B44;
+      border-radius: 3px; }
     .gallery__img .gallery__img--card:hover::before, .gallery__img .gallery__img--card:hover::after, .gallery__img .gallery__img--card:focus::before, .gallery__img .gallery__img--card:focus::after {
       transform: scale3d(1, 1, 1);
       opacity: 1; }
@@ -138,12 +146,11 @@
     font-size: 13px;
     margin-bottom: 0; }
     .gallery__img .gallery__img--props li {
-      padding-bottom: 5px; }
+      padding-bottom: 9px; }
       .gallery__img .gallery__img--props li:last-child {
         padding-bottom: 0; }
-    .gallery__img .gallery__img--props > li i {
-      padding-right: 10px;
-      opacity: .23; }
+    .gallery__img .gallery__img--props > li img {
+      padding-right: 13px; }
 
 .nice-select {
   background-color: #fff;
@@ -155,8 +162,8 @@
   cursor: pointer;
   display: block;
   font-family: inherit;
+  text-transform: uppercase;
   font-size: 14px;
-  font-weight: normal;
   height: 42px;
   line-height: 40px;
   outline: none;
@@ -235,7 +242,8 @@
     transform-origin: 50% 0;
     transform: scale(0.75) translateY(-21px);
     transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
-    z-index: 9; }
+    z-index: 9;
+    width: 100%; }
     .nice-select .list:hover .option:not(:hover) {
       background-color: transparent !important; }
   .nice-select .option {
