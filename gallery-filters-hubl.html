@@ -8,17 +8,17 @@
 <div class="gallery">
   <div class="row-fluid">
     <!-- TOP BAR -->
-    <div class="gallery__action-bar show-for-large-up">
+    <div class="gallery__action-bar">
       <!-- FILTER CLEAR -->
-      <div class="span3">
+      <div class="large-3 columns">
           <div class="gallery__action-bar-left">Filter:
             <a href="JavaScript:void(0);" id="clear-filters">Clear all</a>
           </div>
       </div>
       <!-- SPACER -->
-      <div class="span1"></div>
+      <div class="large-1 columns"></div>
       <!-- SORTS & SEARCH -->
-      <div class="span8">
+      <div class="large-8 columns">
         <div class="gallery__action-bar-right">
           <form id="sort-by">
             <select name="sort-by">
@@ -36,7 +36,8 @@
   
   <div class="row-fluid">
     <!-- SIDEBAR FILTERS -->
-    <div class="span3 gallery__filter show-for-large-up">
+    <div class="large-3 columns gallery__filter show-for-large-up">
+
         <!-- SOLUTIONS -->
       <div class="gallery__filter-card">
         <div class="gallery__filter-card--header">
@@ -45,7 +46,7 @@
         </div>
         <div class="gallery__filter-card--body">
           <form class="gallery__filter-card-checkbox">          
-            {% for solutions in hubdb_table_column('697229', 'solutions').options %}
+            {% for solutions in hubdb_table_column('844364', 'solutions').options %}
               <div class="form-check">
                 <input type="checkbox" id="" name="{{ solutions.name }}" value=".{{ solutions.name| replace(' ','-') }}" data-filter=".{{ solutions.name }}">
                 <label>{{ solutions.name }}</label>
@@ -63,15 +64,16 @@
         </div>
         <div class="gallery__filter-card--body">
           <form class="gallery__filter-card-checkbox">          
-            {% for design in hubdb_table_column('697229', 'kitchen_design_style').options %}
+            {% for design in hubdb_table_column('844364', 'kitchen_design_style').options %}
               <div class="form-check">
-                <input type="checkbox" id="" name="{{ design.name }}" value=".{{ design.name }}" data-filter=".{{ design.name }}">
+                <input type="checkbox" id="" name="{{ design.name | replace('/', '-') }}" value=".{{ design.name | replace('/', '-') }}" data-filter=".{{ design.name | replace('/', '-') }}">
                 <label>{{ design.name }}</label>
               </div>
             {% endfor %}
           </form>
         </div>
       </div>
+
   		<!-- COLOR FAMILY -->
       <div class="gallery__filter-card">
         <div class="gallery__filter-card--header">
@@ -80,15 +82,16 @@
         </div>
         <div class="gallery__filter-card--body">
           <form class="gallery__filter-card-checkbox">          
-            {% for color in hubdb_table_column('697229', 'cabinet_color_family').options %}
+            {% for color in hubdb_table_column('844364', 'cabinet_color_family').options %}
               <div class="form-check">
-                <input type="checkbox" id="" name="{{ color.name }}" value=".{{ color.name }}" data-filter=".{{ color.name }}">
+                <input type="checkbox" id="" name="{{ color.name | replace(' ', '-') }}" value=".{{ color.name | replace(' ', '-') }}" data-filter=".{{ color.name | replace(' ', '-') }}">
                 <label>{{ color.name }}</label>
               </div>
             {% endfor %}
           </form>
         </div>
       </div>
+
       <!-- CABINET STYLES -->
        <div class="gallery__filter-card">
         <div class="gallery__filter-card--header">
@@ -97,15 +100,16 @@
         </div>
         <div class="gallery__filter-card--body">
           <form class="gallery__filter-card-checkbox">          
-            {% for style in hubdb_table_column('697229', 'cabinet_style').options %}
+            {% for style in hubdb_table_column('844364', 'cabinet_style').options %}
               <div class="form-check">
-                <input type="checkbox" id="" name="{{ style.name }}" value=".{{ style.name }}" data-filter=".{{ style.name }}">
+                <input type="checkbox" id="" name="{{ style.name | replace('/','-') | replace(' ', '-')  }}" value=".{{ style.name | replace('/','-') | replace(' ', '-') }}" data-filter=".{{ style.name | replace('/','-') | replace(' ', '-') }}">
                 <label>{{ style.name }}</label>
               </div>
             {% endfor %}
           </form>
         </div>
       </div>
+
       <!-- CABINET MATERIAL -->
        <div class="gallery__filter-card">
         <div class="gallery__filter-card--header">
@@ -114,7 +118,7 @@
         </div>
         <div class="gallery__filter-card--body">
           <form class="gallery__filter-card-checkbox">          
-            {% for row in hubdb_table_column('697229', 'cabinet_material').options %}
+            {% for row in hubdb_table_column('844364', 'cabinet_material').options %}
               <div class="form-check">
                 <input type="checkbox" id="" name="{{ row.name }}" value=".{{ row.name }}" data-filter=".{{ row.name }}">
                 <label>{{ row.name }}</label>
@@ -132,7 +136,7 @@
         </div>
         <div class="gallery__filter-card--body">
           <form class="gallery__filter-card-checkbox">          
-            {% for row in hubdb_table_column('697229', 'countertop_material').options %}
+            {% for row in hubdb_table_column('844364', 'countertop_material').options %}
               <div class="form-check">
                 <input type="checkbox" id="" name="{{ row.name }}" value=".{{ row.name }}" data-filter=".{{ row.name }}">
                 <label>{{ row.name }}</label>
@@ -150,7 +154,7 @@
         </div>
         <div class="gallery__filter-card--body">
           <form class="gallery__filter-card-checkbox">          
-            {% for row in hubdb_table_column('697229', 'countertop_color').options %}
+            {% for row in hubdb_table_column('844364', 'countertop_color').options %}
               <div class="form-check">
                 <input type="checkbox" id="" name="{{ row.name }}" value=".{{ row.name }}" data-filter=".{{ row.name }}">
                 <label>{{ row.name }}</label>
@@ -168,7 +172,7 @@
         </div>
         <div class="gallery__filter-card--body">
           <form class="gallery__filter-card-checkbox">          
-            {% for row in hubdb_table_column('697229', 'backsplash_material').options %}
+            {% for row in hubdb_table_column('844364', 'backsplash_material').options %}
               <div class="form-check">
                 <input type="checkbox" id="" name="{{ row.name }}" value=".{{ row.name }}" data-filter=".{{ row.name }}">
                 <label>{{ row.name }}</label>
@@ -180,17 +184,18 @@
      
     </div>
     <!-- GALLERY IMAGES -->
-    <div class="span9 medium-12 columns">
+    <div class="large-9 columns">
     	<div class="gallery__img gallery__img-grid">       
     		<!-- REPEATED CARD -->
-   			{% for row in hubdb_table_rows(697229, 'is_cover__eq=1') %}
-    		<div id="{{row.kitchen_number}}" class="gallery__img--card {{row.solutions.name | replace(' ','-')}} {{row.kitchen_design_style.name}} {{row.cabinet_color_family.name}} {{row.cabinet_styles.name}}  {{row.cabinet_material.name}} {{row.countertop_material.name}} {{row.countertop_color.name}} {{row.backsplash_material.name}}" data-popular-sort="{{row.most_popular_sort}}" data-arrival-sort="{{row.new_arrival_sort}}">
+   			{% for row in hubdb_table_rows(844364, 'is_cover__eq=1') %}
+    		<div id="{{row.unique_id}}" class="gallery__img--card {{row.solutions.name | replace(' ','-')}} {{row.kitchen_design_style.name | replace('/', '-')}} {{row.cabinet_color_family.name | replace(' ', '-')}} {{row.cabinet_style.name | replace('/','-') | replace(' ', '-')}}  {{row.cabinet_material.name}} {{row.countertop_material.name}} {{row.countertop_color.name}} {{row.backsplash_material.name}}" data-popular-sort="{{row.most_popular_sort}}" data-arrival-sort="{{row.new_arrival_sort}}">
     			<div class="gallery__img--background" style="background-image: url({{ row.image_url }});"></div>
     			<div class="gallery__img--body">
     				<ul class="gallery__img--props">
     					<li><img src="https://www.kitchenmagic.com/hubfs/graphics/icons/cabinet-icon.svg">{{row.cabinet_style.name}}</li>
     					<li><img src="https://www.kitchenmagic.com/hubfs/graphics/icons/countertop-icon.svg">{{row.countertop_material.name}}</li>
     					<li><img src="https://www.kitchenmagic.com/hubfs/graphics/icons/service-icon.svg">{{row.solutions.name}}</li>
+              <li>NA: {{row.new_arrival_sort}} MP: {{row.most_popular_sort}}</li>
     				</ul>
     			</div>
     		</div>
@@ -207,3 +212,4 @@
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <!-- jQuery NICE SELECT -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+<link rel="stylesheet" href="https://cdn2.hubspot.net/hub/-1/hub_generated/template_assets/1495141902003/hubspot_default/shared/responsive/layout.min.css">

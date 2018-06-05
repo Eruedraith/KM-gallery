@@ -161,7 +161,7 @@ $('.gallery__img--card').click( function(event) {
 function getAlbumData(albumId){
   return $.ajax({
     type: 'GET',
-    url: 'https://api.hubapi.com/hubdb/api/v2/tables/697229/rows?portalId=126868&kitchen_number=' + albumId + '',
+    url: 'https://api.hubapi.com/hubdb/api/v2/tables/844364/rows?portalId=126868&unique_id=' + albumId + '',
     success: function(data) {
       return data;
     },
