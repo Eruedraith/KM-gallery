@@ -1,4 +1,64 @@
-console.log('solutions');
+// function kmGallery() {
+//   var model, view, controller;
+
+//   view = {
+//     init: function() {
+//       this.cards = $('.gallery__img--card');
+//     },
+    
+//   }
+
+//   controller = {
+//     init: function() {
+
+//     },
+//     bindEvents: function() {
+//       view.cards.on('click', function(event) {
+//         var kitchenNumber = event['currentTarget']['id']
+//         model.getAlbumData(kitchenNumber).done(function(albumData) {
+//           var cleanAlbumData = controller.parseAlbumData(albumData);
+//           $.swipebox(cleanAlbumData);
+//       });
+//     },
+//     parseAlbumData: function(albumData) {
+//       var newAlbumData = [];
+//       $.each(albumData['objects'], function(key, value){
+//         var image = {
+//           href: value['values'][2] 
+//         }
+//         newAlbumData.push(image);
+//       });
+//       return newAlbumData;
+//     }
+//   }
+
+//   model = {
+//     init: function() {
+
+//     },
+//     getAlbumData: function(albumId) {
+//       return $.ajax({
+//         type: 'GET',
+//         url: 'https://api.hubapi.com/hubdb/api/v2/tables/697229/rows?portalId=126868&kitchen_number=' + albumId + '',
+//         success: function(data) {
+//           return data;
+//         },
+//         error: function(err,b){
+//           console.log('Ajax request error:',err,b);
+//         }
+//       });
+//     }
+//   }
+
+// }
+
+
+//Thumbnail Gallery
+//Thumbnail Gallery Filters, Sort & Search
+//Gallery Viewer
+
+
+
 
 // accordion sidebar 
 $('.gallery__filter-card--header').on("click", function(e) {
@@ -6,8 +66,12 @@ $('.gallery__filter-card--header').on("click", function(e) {
 });
 
 //sidebar filters - click on and off checkbox
-$('.form-check').on('click', function() {
-  $(this).find('input').trigger('click');
+$('.form-check').on("click", function(event) {
+
+  var $box = $(this).find('input');
+  console.log(event);
+  //event.preventDefault();
+  //$box.trigger('click');
 });
 
 // init jQuery Nice Select 
@@ -38,15 +102,6 @@ $select.change( function() {
 	var selectValue = $('#sort-by option:selected').val();
 	$('.gallery__img-grid').isotope({ sortBy: selectValue});
 });
-
-// filter by solution (select form)
-$('#solution-filter').on('change', function() {
-  //get value from option value
-	var selectSolutionValue = this.value;
-	console.log(selectSolutionValue);
-	$('.gallery__img-grid').isotope({ filter: selectSolutionValue});
-});
-
 
 // filter items on checkbox
 var $checkboxes = $('.form-check input');

@@ -8,7 +8,7 @@
 <div class="gallery">
   <div class="row-fluid">
     <!-- TOP BAR -->
-    <div class="gallery__action-bar">
+    <div class="gallery__action-bar show-for-large-up">
       <!-- FILTER CLEAR -->
       <div class="span3">
           <div class="gallery__action-bar-left">Filter:
@@ -26,13 +26,6 @@
               <option value="arrival">Most Recent</option>
             </select>
           </form>
-          <form >
-            <select id="solution-filter" name="solutions-sort">
-              <option value="*">All</option>
-              <option value=".Cabinet, .Refacing">Cabinet Refacing</option>
-              <option value=".New, .Cabinets">New Cabinets</option>
-            </select>
-          </form>
           <form id="search-bar" action="javascript:void(0);">
           	<input id="gallery-filter-search" type="text" placeholder="Search...">
       	  </form>
@@ -43,7 +36,25 @@
   
   <div class="row-fluid">
     <!-- SIDEBAR FILTERS -->
-    <div class="span3 gallery__filter hide-for-small-only">
+    <div class="span3 gallery__filter show-for-large-up">
+        <!-- SOLUTIONS -->
+      <div class="gallery__filter-card">
+        <div class="gallery__filter-card--header">
+          Solutions
+          <span class="gallery__filter-card--dropdown"><i class="fa fa-chevron-down"></i></span>
+        </div>
+        <div class="gallery__filter-card--body">
+          <form class="gallery__filter-card-checkbox">          
+            {% for solutions in hubdb_table_column('697229', 'solutions').options %}
+              <div class="form-check">
+                <input type="checkbox" id="" name="{{ solutions.name }}" value=".{{ solutions.name| replace(' ','-') }}" data-filter=".{{ solutions.name }}">
+                <label>{{ solutions.name }}</label>
+              </div>
+            {% endfor %}
+          </form>
+        </div>
+      </div>
+
       <!-- KITCHEN DESIGN STYLES -->
       <div class="gallery__filter-card">
         <div class="gallery__filter-card--header">
@@ -169,11 +180,11 @@
      
     </div>
     <!-- GALLERY IMAGES -->
-    <div class="span9">
+    <div class="span9 medium-12 columns">
     	<div class="gallery__img gallery__img-grid">       
     		<!-- REPEATED CARD -->
    			{% for row in hubdb_table_rows(697229, 'is_cover__eq=1') %}
-    		<div id="{{row.kitchen_number}}" class="gallery__img--card cabinet {{row.solutions.name}} {{row.kitchen_design_style.name}} {{row.cabinet_color_family.name}} {{row.cabinet_styles.name}}  {{row.cabinet_material.name}} {{row.countertop_material.name}} {{row.countertop_color.name}} {{row.backsplash_material.name}}" data-popular-sort="{{row.most_popular_sort}}" data-arrival-sort="{{row.new_arrival_sort}}">
+    		<div id="{{row.kitchen_number}}" class="gallery__img--card {{row.solutions.name | replace(' ','-')}} {{row.kitchen_design_style.name}} {{row.cabinet_color_family.name}} {{row.cabinet_styles.name}}  {{row.cabinet_material.name}} {{row.countertop_material.name}} {{row.countertop_color.name}} {{row.backsplash_material.name}}" data-popular-sort="{{row.most_popular_sort}}" data-arrival-sort="{{row.new_arrival_sort}}">
     			<div class="gallery__img--background" style="background-image: url({{ row.image_url }});"></div>
     			<div class="gallery__img--body">
     				<ul class="gallery__img--props">
@@ -191,9 +202,8 @@
   </div>
 </div>
 
+<!-- MOVE ALL OF THIS TO LINKED FILES IN HUBSPOT -->
 <!-- ISOTOPE -->
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
-<!-- SWIPEBOX -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/js/jquery.swipebox.min.js"></script>
 <!-- jQuery NICE SELECT -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
