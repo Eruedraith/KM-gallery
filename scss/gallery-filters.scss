@@ -1,3 +1,27 @@
+/*
+ * Author:  Joshua Todd, Josh Mamroud
+ * Version: 1.0.0
+ * Github:  https://github.com/Eruedraith/KM-gallery 
+ */
+
+/* ============================================================
+   SUMMARY
+/* ============================================================
+  
+  00. SCSS Mixins, Variables
+  01. Top Action Bar
+  02. Sidebar Filters
+  03. Image Cards / Grid
+  04. Select Styling - jQuery Nice Select
+  05. ModuloBox - popup overrides
+
+/* ============================================================
+   00. SCSS Mixins, Variables
+/* ============================================================ */
+/**/
+/* If you want to change mixins, variables: https://github.com/Eruedraith/KM-gallery */
+/**/
+
 // Mixins 
 @mixin form-override {
 	border: none !important;
@@ -20,6 +44,13 @@
 
 @mixin transition {
 	transition: all 300ms ease;
+}
+
+@mixin grid {
+  position: relative;
+  float: left;
+  padding-left: .9375rem; 
+  padding-right: .9375rem;
 }
 
 // Responsive Mixins
@@ -59,11 +90,10 @@ $border-color: #DFEAEE;
 $red:		       #F01834;
 
 
-/******************************************** 
-  https://github.com/Eruedraith/KM-gallery 
-********************************************/
+/* ============================================================
+   01. Top Action Bar
+/* ============================================================ */
 
-/*** Gallery Top Action Bar ***/
 .gallery__action-bar {
 	display: flex;
 	align-items: center;
@@ -153,9 +183,25 @@ $red:		       #F01834;
     }
 }
 
-/*** Sidebar ***/
+/* ============================================================
+   02. Sidebar Filters
+/* ============================================================ */
 
 .gallery__filter {
+  @include grid;
+  width: 25%;
+
+  @include tablet {
+    width: 40% !important;
+  }
+
+  @include tablet-landscape {
+    width: 33.33333% !important;
+  }
+
+  @include mobile {
+    display: none !important;
+  }
 
 	.gallery__filter-card {
 		&:first-child {
@@ -214,7 +260,27 @@ $red:		       #F01834;
 }
 
 
-/*** Image Gallery ***/
+/* ============================================================
+   03. Image Cards / Grid
+/* ============================================================ */
+
+.gallery__img-container {
+  @include grid;
+  width: 75%;
+
+  @include tablet {
+    width: 60% !important;
+  }
+
+  @include tablet-landscape {
+    width: 66.66667% !important;
+  }
+
+  @include mobile {
+    width: 100% !important;
+  }
+
+}
 
 .gallery__img {
 	display: flex;
@@ -339,8 +405,9 @@ $red:		       #F01834;
 	}
 }
 
-
-/*** Select Styling - jQuery Nice Select ***/
+/* ============================================================
+   04. Selects - jQuery Nice Select
+/* ============================================================ */
 
 // variables 
 $font_size: 14px !default;
@@ -515,7 +582,13 @@ $arrow_color: $gray !default;
   }
 }
 
-/*** ModuloBox - popup overrides ***/
+/* ============================================================
+   05. ModuloBox - popup overrides
+/* ============================================================ */
+
+.mobx-holder {
+  z-index: 999999;
+}
 
 .mobx-overlay {
     background: rgba(0,0,0,.9) !important;
@@ -528,8 +601,7 @@ $arrow_color: $gray !default;
 .mobx-ui {
 
   button {
-
-    &:hover {
+    &:hover, &:focus, &:active {
       background-color: transparent;
     }
 

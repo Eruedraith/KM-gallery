@@ -1,9 +1,9 @@
 // TO BE SORTED
-//    $('a.popup-btn').magnificPopup({
-//         src: '#gallery-popup',    
-//         type: 'inline',
-//         midClick: true
-//     });
+   $('a.popup-btn').magnificPopup({
+        src: '#gallery-popup',    
+        type: 'inline',
+        midClick: true
+    });
 
 // START APP
 function GalleryModel(){
@@ -96,7 +96,7 @@ GalleryView.prototype = {
         this.$collectionCards = this.$container.find('.gallery__img--card');
         this.$collectionCardGrid = this.$container.find('.gallery__img-grid');
         this.$gallerySidebar = $('#gallery-sidebar');
-        this.$filterHeaders = this.$container.find('.gallery__filter-card--header');
+        this.$filterHeaders = this.$container.find('.gallery__filter-card--header, .gallery__filter-card--dropdown');
         this.$filterCheckboxEls = this.$container.find('.form-check');
         this.$filterCheckboxInputs = this.$container.find('.form-check input');
         this.$filterClearAllButton = this.$container.find('#clear-filters');
@@ -168,7 +168,7 @@ GalleryController.prototype = {
             }
 
             //create filter value string based on selected checkboxes
-            filterValue = view.$filterCheckboxInputs.filter(':checked').toArray().map(function(filter){return filter.value;}).join();
+            filterValue = view.$filterCheckboxInputs.filter(':checked').toArray().map(function(filter){return filter.value;}).join("");
             self.filter.update({filter:filterValue});
         });
 
@@ -261,7 +261,7 @@ GalleryController.prototype = {
 
         init: function(){
             this.gallery = new ModuloBox({
-                controls : ['zoom', 'play', 'fullScreen', 'download', 'share', 'close'],
+                controls : ['zoom', 'play', 'fullScreen', 'share', 'close'],
                 prevNext: true
             });
             this.gallery.init();

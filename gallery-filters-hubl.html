@@ -13,7 +13,7 @@
     <div class="gallery__action-bar">
       <!-- FILTER CLEAR -->
       <div class="large-3 columns">
-          <div class="gallery__action-bar-left">Filter:
+          <div class="gallery__action-bar-left">Filter by:
             <a href="JavaScript:void(0);" id="clear-filters">Clear all</a>
           </div>
       </div>
@@ -39,7 +39,7 @@
   <div class="row-fluid">
     
     <!-- SIDEBAR FILTERS -->
-    <div class="large-3 columns gallery__filter show-for-large-up"><!-- FILTER LIST -->
+    <div class="gallery__filter"><!-- FILTER LIST -->
 
       {% set filter_groups = [
         {name:'solutions',label:'Solutions'},
@@ -99,7 +99,7 @@
     
     
 
-    <div class="large-9 columns"> <!-- GALLERY IMAGE GRID -->
+    <div class="gallery__img-container"> <!-- GALLERY IMAGE GRID -->
       <div class="gallery__img gallery__img-grid">       
         <!-- REPEATED CARD -->
         {% for row in hubdb_table_rows(table_id, 'is_cover__eq=1') %}
@@ -127,11 +127,6 @@
   </div>
 </div>
 
-<!-- MOVE ALL OF THIS TO LINKED FILES IN HUBSPOT -->
-<!-- ISOTOPE -->
-<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
-<!-- jQuery NICE SELECT -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
 <!-- DEV REQUIREMENTS -->
-<link rel="stylesheet" href="https://cdn2.hubspot.net/hub/-1/hub_generated/template_assets/1495141902003/hubspot_default/shared/responsive/layout.min.css">        
-        
+<!-- <link rel="stylesheet" href="https://cdn2.hubspot.net/hub/-1/hub_generated/template_assets/1495141902003/hubspot_default/shared/responsive/layout.min.css">        
+         -->
