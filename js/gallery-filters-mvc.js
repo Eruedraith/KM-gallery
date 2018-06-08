@@ -149,10 +149,7 @@ GalleryController.prototype = {
         view.$collectionCards.on('click', function(event){
             var collectionId = $(this).data('collectionName'),
             collection = self.model.getCollection(collectionId);
-
-            self.viewer.handleCollectionCardClick(collectionId, collection);
-            
-            
+            self.viewer.handleCollectionCardClick(collectionId, collection); 
         });
 
         //FILTER EVENT LISTENERS

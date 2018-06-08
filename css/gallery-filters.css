@@ -110,7 +110,8 @@
     flex-basis: 31%;
     width: 31%;
     margin-bottom: 20px;
-    border-radius: 3px; }
+    border-radius: 3px;
+    transition: box-shadow 400ms ease; }
     @media (min-width: 768px) and (max-width: 1024px) {
       .gallery__img .gallery__img--card {
         width: 45%; } }
@@ -122,34 +123,32 @@
       box-shadow: 0 2px 20px #D9DFF0;
       -moz-box-shadow: 0 2px 20px #D9DFF0;
       -webkit-box-shadow: 0 2px 20px #D9DFF0; }
-    .gallery__img .gallery__img--card:before, .gallery__img .gallery__img--card:after {
+      .gallery__img .gallery__img--card:hover .gallery__img--background-overlay {
+        opacity: 1; }
+    .gallery__img .gallery__img--card:before {
+      transition: background-color 400ms ease;
+      content: ""; }
+    .gallery__img .gallery__img--card:hover::before {
       position: absolute;
       top: 0;
-      right: 0;
-      bottom: 0;
       left: 0;
-      transition: opacity .38s ease-in-out, transform .35s ease-in-out;
-      content: '';
-      opacity: 0;
-      pointer-events: none; }
-    .gallery__img .gallery__img--card:before {
-      transform: scale3d(0, 1, 1);
-      transform-origin: left top;
-      border-top: 1px solid #F01834;
-      border-bottom: 1px solid #F01834;
-      border-radius: 3px; }
-    .gallery__img .gallery__img--card:after {
-      transform: scale3d(1, 0, 1);
-      transform-origin: right top;
-      border-right: 1px solid #F01834;
-      border-left: 1px solid #F01834;
-      border-radius: 3px; }
-    .gallery__img .gallery__img--card:hover::before, .gallery__img .gallery__img--card:hover::after, .gallery__img .gallery__img--card:focus::before, .gallery__img .gallery__img--card:focus::after {
-      transform: scale3d(1, 1, 1);
-      opacity: 1; }
+      width: 100%;
+      height: 210px;
+      background-color: rgba(0, 0, 0, 0.3);
+      content: ""; }
   .gallery__img .gallery__img--background {
     background-size: cover;
     height: 210px; }
+    .gallery__img .gallery__img--background .gallery__img--background-overlay {
+      transition: 400ms ease;
+      opacity: 0;
+      position: absolute;
+      text-align: center;
+      line-height: 210px;
+      width: 100%; }
+      .gallery__img .gallery__img--background .gallery__img--background-overlay span i {
+        font-size: 30px;
+        color: #fff; }
   .gallery__img .gallery__img--body {
     padding: 13px 20px 18px; }
   .gallery__img .gallery__img--props {
@@ -285,85 +284,23 @@
 .no-csspointerevents .nice-select.open .list {
   display: block; }
 
-/*** Swipebox - popup overrides ***/
-#swipebox-overlay {
+/*** ModuloBox - popup overrides ***/
+.mobx-overlay {
   background: rgba(0, 0, 0, 0.9) !important; }
 
-#swipebox-container {
-  width: calc(100% - 420px) !important; }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    #swipebox-container {
-      width: 100% !important; } }
-  @media (min-width: 320px) and (max-width: 480px) {
-    #swipebox-container {
-      width: 100% !important; } }
-  @media (min-width: 481px) and (max-width: 767px) {
-    #swipebox-container {
-      width: 100% !important; } }
+.mobx-top-bar {
+  background-color: #000; }
 
-#gallery-sidebar {
-  width: 420px;
-  position: absolute;
-  background: #fff;
-  height: 100%;
-  right: 0;
-  z-index: 9999;
-  padding: 50px 40px; }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    #gallery-sidebar {
-      display: none; } }
-  @media (min-width: 320px) and (max-width: 480px) {
-    #gallery-sidebar {
-      display: none; } }
-  @media (min-width: 481px) and (max-width: 767px) {
-    #gallery-sidebar {
-      display: none; } }
+.mobx-ui button:hover {
+  background-color: transparent; }
 
-#swipebox-action #swipebox-next {
-  right: 20px;
-  top: 50vh;
-  position: absolute;
-  background-image: url(https://www.kitchenmagic.com/hubfs/graphics/icons/next-arrow.png) !important;
-  height: 40px;
-  width: 44px;
-  background-size: cover;
-  background-position: inherit; }
-  @media (min-width: 320px) and (max-width: 480px) {
-    #swipebox-action #swipebox-next {
-      display: none; } }
+.mobx-video:before, .mobx-video:after, .mobx-thumb-video:after, .mobx-ui button, .mobx-share-tooltip *:after {
+  background-image: url(https://www.kitchenmagic.com/hubfs/graphics/icons/modulobox.svg); }
 
-#swipebox-action #swipebox-prev {
-  left: 20px;
-  top: 50vh;
-  position: absolute;
-  background-image: url(https://www.kitchenmagic.com/hubfs/graphics/icons/prev-arrow.png) !important;
-  height: 40px;
-  width: 40px;
-  background-size: cover;
-  background-position: inherit; }
-  @media (min-width: 320px) and (max-width: 480px) {
-    #swipebox-action #swipebox-prev {
-      display: none; } }
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  #swipebox-close {
-    top: 125px !important; } }
-
-@media (min-width: 320px) and (max-width: 480px) {
-  #swipebox-close {
-    display: none; } }
-
-#swipebox-mobile-note {
-  display: none; }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    #swipebox-mobile-note {
-      display: none; } }
-  @media (min-width: 320px) and (max-width: 480px) {
-    #swipebox-mobile-note {
-      display: block;
-      position: absolute;
-      bottom: 5px;
-      color: #fff;
-      font-size: 12px;
-      left: 50%;
-      transform: translateX(-50%); } }
+.mobx-caption .mobx-caption-inner {
+  max-width: 600px; }
+  .mobx-caption .mobx-caption-inner .mobx-desc {
+    font-size: 15px;
+    text-align: left;
+    line-height: 1.45;
+    color: #dadada; }

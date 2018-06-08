@@ -56,7 +56,7 @@
 
 // Variables 
 $border-color: #DFEAEE;
-$red:		   #F01834;
+$red:		       #F01834;
 
 
 /******************************************** 
@@ -227,6 +227,7 @@ $red:		   #F01834;
 		width: 31%;
 		margin-bottom: 20px;
 		border-radius: 3px;
+    transition: box-shadow 400ms ease;
 
     @include tablet {
       width: 45%;
@@ -239,45 +240,79 @@ $red:		   #F01834;
 		&:hover {
 			cursor: pointer;
 			@include box-shadow;
+
+      .gallery__img--background-overlay {
+        opacity: 1;
+      }
 		}
+
+    &:before {
+      transition: background-color 400ms ease;
+      content:"";
+    }
+
+    &:hover::before {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 210px;
+       background-color: rgba(0,0,0,.3);
+       content: "";
+    }
    		//add animation for borders on hover
-		&:before, &:after {
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			transition: opacity .38s ease-in-out, transform .35s ease-in-out;
-			content: '';
-			opacity: 0;
-			pointer-events: none;
-		}
+		// &:before, &:after {
+		// 	position: absolute;
+		// 	top: 0;
+		// 	right: 0;
+		// 	bottom: 0;
+		// 	left: 0;
+		// 	transition: opacity .38s ease-in-out, transform .35s ease-in-out;
+		// 	content: '';
+		// 	opacity: 0;
+		// 	pointer-events: none;
+		// }
 
-		&:before {
-			transform: scale3d(0, 1, 1);
-			transform-origin: left top;
-			border-top: 1px solid $red;
-			border-bottom: 1px solid $red;
-			border-radius: 3px;
-		}
+		// &:before {
+		// 	transform: scale3d(0, 1, 1);
+		// 	transform-origin: left top;
+		// 	border-top: 1px solid $red;
+		// 	border-bottom: 1px solid $red;
+		// 	border-radius: 3px;
+		// }
 
-		&:after {
-			transform: scale3d(1, 0, 1);
-			transform-origin: right top;
-			border-right: 1px solid $red;
-			border-left: 1px solid $red;
-			border-radius: 3px;
-		}
+		// &:after {
+		// 	transform: scale3d(1, 0, 1);
+		// 	transform-origin: right top;
+		// 	border-right: 1px solid $red;
+		// 	border-left: 1px solid $red;
+		// 	border-radius: 3px;
+		// }
 
-		&:hover::before, &:hover::after, &:focus::before, &:focus::after {
-			transform: scale3d(1, 1, 1);
-			opacity: 1;
-		}
+		// &:hover::before, &:hover::after, &:focus::before, &:focus::after {
+		// 	transform: scale3d(1, 1, 1);
+		// 	opacity: 1;
+		// }
 	}
 
 	.gallery__img--background {
 		background-size: cover;
 		height: 210px;
+
+    .gallery__img--background-overlay {
+      transition: 400ms ease;
+      opacity: 0;
+      position: absolute;
+      text-align: center;
+      line-height: 210px;
+      width: 100%;
+
+      span i {
+        font-size: 30px;
+        color: #fff;
+      }
+    }
+
 	}
 
 	.gallery__img--body {
@@ -480,106 +515,41 @@ $arrow_color: $gray !default;
   }
 }
 
-/*** Swipebox - popup overrides ***/
+/*** ModuloBox - popup overrides ***/
 
-#swipebox-overlay {
+.mobx-overlay {
     background: rgba(0,0,0,.9) !important;
 }
 
-#swipebox-container {
-  width: calc(100% - 420px) !important;
-
-  @include tablet {
-    width: 100% !important;
-  }
-
-  @include mobile {
-    width: 100% !important;
-  }
-
-  @include mobile-landscape {
-    width: 100% !important;
-  }
+.mobx-top-bar {
+  background-color: #000;
 }
 
-#gallery-sidebar {
-  width: 420px;
-  position: absolute;
-  background: #fff;
-  height: 100%;
-  right: 0;
-  z-index: 9999;
-  padding: 50px 40px;
+.mobx-ui {
 
-  @include tablet {
-    display: none;
-  }
+  button {
 
-  @include mobile {
-    display: none;
-  }
-
-  @include mobile-landscape {
-    display: none;
-  }
-}
-
-#swipebox-action {
-
-    #swipebox-next {
-      right: 20px;
-      top: 50vh;
-      position: absolute;
-      background-image: url(https://www.kitchenmagic.com/hubfs/graphics/icons/next-arrow.png) !important;
-      height: 40px;
-      width: 44px;
-      background-size: cover;
-      background-position: inherit;
-
-      @include mobile {
-        display: none;
-      }
+    &:hover {
+      background-color: transparent;
     }
 
-    #swipebox-prev {
-      left: 20px;
-      top: 50vh;
-      position: absolute;
-      background-image: url(https://www.kitchenmagic.com/hubfs/graphics/icons/prev-arrow.png) !important;
-      height: 40px;
-      width: 40px;
-      background-size: cover;
-      background-position: inherit;
+  }
+}
 
-      @include mobile {
-        display: none;
-      }
+.mobx-video:before, .mobx-video:after, .mobx-thumb-video:after, .mobx-ui button, .mobx-share-tooltip *:after {
+  background-image: url(https://www.kitchenmagic.com/hubfs/graphics/icons/modulobox.svg);
+}
+
+.mobx-caption {
+
+  .mobx-caption-inner {
+    max-width: 600px;
+
+    .mobx-desc {
+      font-size: 15px;
+      text-align: left;
+      line-height: 1.45;
+      color: #dadada;
     }
-}
-
-#swipebox-close {
-  @include tablet {
-    top: 125px !important;
-  }
-  @include mobile {
-    display: none;
-  }
-}
-
-#swipebox-mobile-note {
-  display: none;
-
-  @include tablet {
-    display: none;
-  }
-
-  @include mobile {
-    display: block;
-    position: absolute;
-    bottom: 5px;
-    color: #fff;
-    font-size: 12px;
-    left: 50%;
-    transform: translateX(-50%);
   }
 }
